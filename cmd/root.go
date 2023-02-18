@@ -19,8 +19,9 @@ var tramite string
 var region int
 
 var rootCmd = &cobra.Command{
-	Use:   "srcei-date-checker",
-	Short: "Obtener la cita más cercana para el trámite y región indicado.",
+	Use:     "srcei-date-checker",
+	Version: "0.1.1",
+	Short:   "Obtener la cita más cercana para el trámite y región indicado.",
 	Long: `Obtener la cita más cercana para el trámite y región indicado.
 Ejemplo:
 srcei-date-checker -t 2-5 -r 13
