@@ -64,7 +64,7 @@ func FindTheNearestDate(oficinas []Oficinas) {
 		if err := json.NewDecoder(resp.Body).Decode(&availableDates); err != nil {
 			println("Error al obtener las fechas disponibles para la oficina " + oficina.NombreOficina)
 			println(err.Error())
-			os.Exit(1)
+			continue
 		}
 		//get only the first date of the office
 		if len(availableDates.Horas) > 0 {
