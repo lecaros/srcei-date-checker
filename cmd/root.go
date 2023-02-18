@@ -32,7 +32,7 @@ Para obtener la lista de regiones y trámites disponibles, ejecutar el comando s
 Trámite a realizar. Valores posibles:
 - Primera obtención de Cédula de Identidad para chileno: 2-4
 - Primera obtención de Cédula de Identidad para extranjero: 2-5
-- Reimpresión de Cédula: 4-22
+- Reimpresión de Cédula: 2-22
 - Renovación de Cédula Chileno/a: 2-6
 
 `,
