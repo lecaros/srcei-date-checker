@@ -61,6 +61,7 @@ func FindTheNearestDate(oficinas []Oficinas) {
 		var availableDates AvailableDates
 
 		if err := json.NewDecoder(resp.Body).Decode(&availableDates); err != nil {
+			println("Error al obtener las fechas disponibles para la oficina " + oficina.NombreOficina)
 			println(err.Error())
 			os.Exit(1)
 		}
@@ -68,7 +69,7 @@ func FindTheNearestDate(oficinas []Oficinas) {
 		if len(availableDates.Horas) > 0 {
 			date, _ := time.Parse("2006-01-02 15:04:05", availableDates.Horas[0].FechaHora)
 			//print office and date
-			println("Oficina: " + oficina.NombreOficina + " - Fecha: " + date.String())
+			println("Oficina: " + oficina.NombreOficina + " - Fecha: " + date.Format("2006-01-02 15:04:05"))
 			bestDateAndOffice = append(bestDateAndOffice, BestOfficeDate{oficina.NombreOficina, date})
 			if bestDate.IsZero() || date.Before(bestDate) {
 				bestDate = date
@@ -85,7 +86,7 @@ func FindTheNearestDate(oficinas []Oficinas) {
 	})
 	//print ordered bestDateAndOffice
 	for _, bestOfficeDate := range bestDateAndOffice {
-		println("Oficina: " + bestOfficeDate.Oficina + " - Fecha: " + bestOfficeDate.Date.String())
+		println("Oficina: " + bestOfficeDate.Oficina + " - Fecha: " + bestOfficeDate.Date.Format("2006-01-02 15:04:05"))
 	}
 
 	println("La mejor fecha es: " + bestDate.Format("2006-01-02 15:04") + " en la oficina " + bestOficina)
